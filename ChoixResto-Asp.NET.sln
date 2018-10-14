@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoixResto-Asp.NET", "ChoixResto-Asp.NET\ChoixResto-Asp.NET.csproj", "{76AE2687-9138-461C-A283-D2713715D0C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoixResto-Asp.NET.Tests", "ChoixResto-Asp.NET.Tests\ChoixResto-Asp.NET.Tests.csproj", "{14E9FBCE-A165-4A78-AC51-373717A85A84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76AE2687-9138-461C-A283-D2713715D0C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76AE2687-9138-461C-A283-D2713715D0C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76AE2687-9138-461C-A283-D2713715D0C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76AE2687-9138-461C-A283-D2713715D0C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14E9FBCE-A165-4A78-AC51-373717A85A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14E9FBCE-A165-4A78-AC51-373717A85A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14E9FBCE-A165-4A78-AC51-373717A85A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14E9FBCE-A165-4A78-AC51-373717A85A84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3678F4EA-DF0D-4A1B-B735-6A4D3C2C383C}
+	EndGlobalSection
+EndGlobal
