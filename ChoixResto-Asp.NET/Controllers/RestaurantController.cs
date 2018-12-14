@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ChoixResto_Asp.NET.Models;
+using ChoixResto_Asp.NET.ViewModels;
 
 namespace ChoixResto_Asp.NET.Controllers
 {
@@ -26,7 +27,13 @@ namespace ChoixResto_Asp.NET.Controllers
 			return View(listeDesRestaurants);
 		}
 
-		public ActionResult CreerRestaurant()
+        public JsonResult VerifNomResto(string Nom)
+        {
+            bool resultat = !dal.RestaurantExiste(Nom);
+            return Json(resultat, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult CreerRestaurant()
 		{
 			return View();
 		}
@@ -66,5 +73,19 @@ namespace ChoixResto_Asp.NET.Controllers
 			dal.ModifierRestaurant(resto.Id, resto.Nom, resto.Telephone);
 			return RedirectToAction("Index");
 		}
-	}
+
+        public ActionResult Recherche(RechercheViewModel rechercheViewModel)
+        {
+            return View(rechercheViewModel);
+        }
+
+        public ActionResult ResultatsRecherche(RechercheViewModel rechercheViewModel)
+        {
+            if (!string.IsNullOrWhiteSpace(rechercheViewModel.Recherche))
+                rechercheViewModel.ListeDesRestos = dal.ObtientTousLesRestaurants().Where(r => r.Nom.IndexOf(rechercheViewModel.Recherche, StringComparison.CurrentCultureIgnoreCase) >= 0).ToList();
+            else
+                rechercheViewModel.ListeDesRestos = new List<Resto>();
+            return PartialView(rechercheViewModel);
+        }
+    }
 }

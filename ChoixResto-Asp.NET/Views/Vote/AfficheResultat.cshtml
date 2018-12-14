@@ -18,20 +18,43 @@
 </head>
 <body>
 	<p>Résultats du sondage :</p>
-	<table>
-		<tr>
-			<th>Nom</th>
-			<th>Téléphone</th>
-			<th>Nombre de votes</th>
-		</tr>
-		@foreach (var resto in Model)
-		{
-			<tr>
-				<td>@resto.Nom</td>
-				<td>@resto.Telephone</td>
-				<td>@resto.NombreDeVotes</td>
-			</tr>
+	<div id="tableauResultat">
+
+	</div>
+	<!--Ajax.ActionLink("Actualiser le résultat", "AfficheTableau", new { id = ViewBag.Id}, new AjaxOptions
+	{
+		 InsertionMode = InsertionMode.Replace,
+		 UpdateTargetId = "tableauResultat",
+		 HttpMethod = "GET",
+		 OnFailure = "ErreurAfficheTableau"
+	})-->
+	<p>Vue normale : @DateTime.Now.ToLongTimeString()</p>
+	<!--<script type="text/javascript">
+		function ErreurAfficheTableau() {
+			$("#tableauResultat").html("Une erreur s'est produite lors de la mise à jour, veuillez réessayer ...");
 		}
-	</table>
+	</script>-->
+	<img src="@Url.Action("AfficheGraphique", new { id = ViewBag.Id })" />
+	<script type="text/javascript">
+		var timer;
+		function ChargeVuePartielle() {
+		}
+
+		$(function () {
+			timer = window.setInterval("ChargeVuePartielle()", 10000);
+			ChargeVuePartielle();
+		});
+
+		function ChargeVuePartielle() {
+			$.ajax({
+			  url: '@Url.Action("AfficheTableau", new {id = ViewBag.Id  })',
+			  type: 'GET',
+			  dataType: 'html',
+			  success: function (result) {
+					$('#tableauResultat').html(result);
+			  }
+			});
+		}
+	</script>
 </body>
 </html>

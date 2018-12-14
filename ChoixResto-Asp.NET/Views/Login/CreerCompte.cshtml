@@ -1,0 +1,18 @@
+﻿@model ChoixResto_Asp.NET.Models.Utilisateur
+
+
+<p>Créer un compte : </p>
+@using (Html.BeginForm())
+{
+	<div>
+		@Html.LabelFor(m => m.Prenom)
+		@Html.TextBoxFor(m => m.Prenom)
+		@Html.ValidationMessageFor(m => m.Prenom)
+	</div>
+	<div>
+		@Html.LabelFor(m => m.MotDePasse)
+		@Html.PasswordFor(m => m.MotDePasse)
+		@Html.ValidationMessageFor(m => m.MotDePasse)
+	</div>
+	<input type="submit" value="Créer" />
+}
